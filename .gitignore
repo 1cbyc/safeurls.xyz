@@ -302,3 +302,8 @@ tmp/
 temp/
 *.tmp
 *.temp
+
+
+# myself
+1cbyc-*.md
+1cbyc_tasks.md
