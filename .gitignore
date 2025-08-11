@@ -14,21 +14,20 @@ lerna-debug.log*
 .env.production.local
 .env.example
 
-# Backend specific files
-backend/README.md
-backend/.eslintrc.js
-backend/docker-compose.yml
-backend/Dockerfile
-backend/env.example
-backend/scripts/
-backend/tests/
-backend/utils/
-backend/middleware/
-backend/routes/
-backend/services/
-backend/models/
-backend/server.js
-backend/package-lock.json
+# Backend specific files to ignore
+backend/node_modules/
+backend/.env
+backend/.env.local
+backend/.env.development.local
+backend/.env.test.local
+backend/.env.production.local
+backend/coverage/
+backend/.nyc_output/
+backend/logs/
+backend/data/
+backend/mongodb/
+backend/dump.rdb
+backend/.pm2/
 
 # Build outputs
 dist/
