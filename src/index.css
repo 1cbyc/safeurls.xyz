@@ -1,0 +1,299 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables for Cyberpunk Theme */
+:root {
+  --cyber-bg-primary: #0a0a0f;
+  --cyber-bg-secondary: #111118;
+  --cyber-bg-tertiary: #1a1a24;
+  --cyber-accent-primary: #00ff88;
+  --cyber-accent-secondary: #00d4ff;
+  --cyber-accent-danger: #ff3366;
+  --cyber-accent-warning: #ffaa00;
+  --cyber-text-primary: #e0e0e0;
+  --cyber-text-secondary: #a0a0a0;
+  --cyber-text-muted: #666666;
+  --cyber-border: #333344;
+  --cyber-glow: 0 0 20px rgba(0, 255, 136, 0.3);
+  --cyber-glow-blue: 0 0 20px rgba(0, 212, 255, 0.3);
+  --cyber-glow-red: 0 0 20px rgba(255, 51, 102, 0.3);
+}
+
+body {
+  background: var(--cyber-bg-primary);
+  color: var(--cyber-text-primary);
+  font-family: 'Inter', 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  margin: 0;
+  padding: 0;
+}
+
+/* Cyber Grid Background */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(0, 255, 136, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  position: relative;
+}
+
+.cyber-grid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Glitch Animation */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.glitch:hover {
+  animation: glitch 0.3s ease-in-out;
+}
+
+/* Neon Text Effects */
+.neon-green {
+  color: var(--cyber-accent-primary);
+  text-shadow: 0 0 10px var(--cyber-accent-primary);
+}
+
+.neon-blue {
+  color: var(--cyber-accent-secondary);
+  text-shadow: 0 0 10px var(--cyber-accent-secondary);
+}
+
+.neon-red {
+  color: var(--cyber-accent-danger);
+  text-shadow: 0 0 10px var(--cyber-accent-danger);
+}
+
+/* Cyber Button */
+.cyber-btn {
+  background: linear-gradient(45deg, var(--cyber-bg-tertiary), var(--cyber-bg-secondary));
+  border: 1px solid var(--cyber-accent-primary);
+  color: var(--cyber-accent-primary);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cyber-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cyber-btn:hover::before {
+  left: 100%;
+}
+
+.cyber-btn:hover {
+  box-shadow: var(--cyber-glow);
+  transform: translateY(-2px);
+}
+
+/* Cyber Card */
+.cyber-card {
+  background: linear-gradient(135deg, var(--cyber-bg-secondary), var(--cyber-bg-tertiary));
+  border: 1px solid var(--cyber-border);
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.cyber-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cyber-accent-primary), var(--cyber-accent-secondary));
+}
+
+/* Scanning Animation */
+@keyframes scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.scanning::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.3), transparent);
+  animation: scan 2s infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cyber-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cyber-accent-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyber-accent-secondary);
+  box-shadow: var(--cyber-glow-blue);
+}
+
+/* Status Colors */
+.status-safe {
+  color: var(--cyber-accent-primary);
+  text-shadow: 0 0 10px var(--cyber-accent-primary);
+}
+
+.status-warning {
+  color: var(--cyber-accent-warning);
+  text-shadow: 0 0 10px var(--cyber-accent-warning);
+}
+
+.status-danger {
+  color: var(--cyber-accent-danger);
+  text-shadow: 0 0 10px var(--cyber-accent-danger);
+}
+
+/* Fade In Animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Slide In Animation */
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+/* Glow Effect */
+.glow {
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+.glow:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+}
+
+/* Loading Spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Progress Bar Animation */
+@keyframes progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.progress-animate {
+  animation: progress 2s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cyber-card {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .cyber-btn {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cyber-bg-primary: #000000;
+    --cyber-bg-secondary: #0a0a0a;
+    --cyber-bg-tertiary: #111111;
+  }
+}
+
+/* Focus styles for accessibility */
+.cyber-btn:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--cyber-accent-primary);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .cyber-card {
+    border: 2px solid var(--cyber-border);
+  }
+  
+  .cyber-btn {
+    border: 2px solid var(--cyber-accent-primary);
+  }
+}
