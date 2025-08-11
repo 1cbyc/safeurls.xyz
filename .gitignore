@@ -14,6 +14,22 @@ lerna-debug.log*
 .env.production.local
 .env.example
 
+# Backend specific files
+backend/README.md
+backend/.eslintrc.js
+backend/docker-compose.yml
+backend/Dockerfile
+backend/env.example
+backend/scripts/
+backend/tests/
+backend/utils/
+backend/middleware/
+backend/routes/
+backend/services/
+backend/models/
+backend/server.js
+backend/package-lock.json
+
 # Build outputs
 dist/
 build/
@@ -307,3 +323,31 @@ temp/
 # myself
 1cbyc-*.md
 1cbyc_tasks.md
+1cbyc-FRONTEND_README.md
+
+# Project specific files
+test-phishing-detection.md
+deploy.md
+dist/
+package-lock.json
+
+# Frontend build artifacts
+src/components/
+src/hooks/
+src/utils/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
